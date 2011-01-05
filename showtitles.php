@@ -111,7 +111,7 @@
 	</head>
 	<body>
 	<div class="pageholder">
-	<h2 class="dsp dsphead1">PS3 MKB Info -- <a href=index.html>Generate DRL/HRL</a> -- <a href=drlcheck.html>Check DRL Size</a> -- <a href=http://goo.gl/7EHS0>Blank DRL Templates</a> -- <a href=http://goo.gl/sksFR>Source Code</a></h2>
+	<h2 class="dsp dsphead1">PS3 MKB Info -- <a href=index.html>Generate DRL/HRL</a> -- <a href=drlcheck.html>Check DRL Size</a> -- <a href=http://goo.gl/7EHS0>Blank DRL Templates</a> -- <a href=http://goo.gl/sksFR>Source Code</a> --</h2>
 <?php
 function addhrl() {
 $page = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
