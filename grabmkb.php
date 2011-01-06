@@ -5,14 +5,12 @@
      die('Could not connect: ' . mysql_error());
     }
     mysql_select_db("ps3mkb", $myconn);
-    $sql = "select id, title, uncompress(mkbdata) as mkbdata from mkbfiles where id = '$titleid'";
+    $sql = "select uncompress(mkbdata) as mkbdata from mkbfiles_autoincrement where id = '$titleid'";
     $result = mysql_query($sql, $myconn);
+    $row = mysql_fetch_row($result);
+    $mkb = $row[0];
     mysql_close($myconn);
-while($row = mysql_fetch_array($result))
-    {
-    $mkb = $row['mkbdata'];
-    $title = $row['title'];
-    }
+
 $zip = new ZipArchive();
 $zipfilename = tempnam("tmp", "zip");
 $zip->open($zipfilename, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);

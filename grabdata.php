@@ -83,7 +83,7 @@ EOT;
      die('Could not connect: ' . mysql_error());
     }
     mysql_select_db("ps3mkb", $myconn);
-    $sql = "select id, title, uncompress(mkbdata) as mkbdata from mkbfiles where id = '$titleid'";
+    $sql = "select id, title, uncompress(mkbdata) as mkbdata from mkbfiles_autoincrement where id = '$titleid'";
     $result = mysql_query($sql, $myconn);
     mysql_close($myconn);
 while($row = mysql_fetch_array($result))
