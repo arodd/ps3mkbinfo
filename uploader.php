@@ -83,8 +83,17 @@ function hex_dump($data, $title)
     }
     mysql_select_db("ps3mkb", $myconn);
     $data = addslashes($data);
+    $checkdup = "SELECT title, drl, hrl from mkbfiles_autoincrement where title = '$title' and drl ='$drlupper'";
+    $result = mysql_query($checkdup, $myconn);
+    $row = mysql_fetch_row($result);
     $sql = "INSERT INTO mkbfiles_autoincrement (title, mkb, drl, hrl, ipadd, mkbdata ) VALUES ( '$title', '$mkbvers', '$drlupper' , '$hrlupper' , '$ipaddy' , compress('$data') )";
-    mysql_query($sql, $myconn);
+    if( !is_array($row) ) { 
+        mysql_query($sql, $myconn);
+        echo "<br><br>Unique entry, adding data to the database.<br>";
+        }
+    else { 
+        echo "<br><br>Duplicate Record already Found, not added to database<br>";
+        }
     mysql_close($myconn);
     $form = <<<EOT
 "<form name="drl_data" method="post" action="drlfetch_gen.php"><input type="hidden" name="drl" value="$drlupper"><script language="JavaScript">document.drl_data.submit();</script></form>
