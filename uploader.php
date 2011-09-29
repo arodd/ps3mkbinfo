@@ -33,7 +33,7 @@ function hex_dump($data, $title)
     }
     if ( $i == $drlszst ) {
     $drlsz = hexdec($out);
- 	if( $drlsz != 52 && $drlsz != 60 ) {
+ 	if( $drlsz != 52 && $drlsz != 60 && $drlsz !=76 ) {
 	echo "<br><br>Potential Error finding DRL size, DEBUG: " . $drlsz . " <br> report to <a href=http://psx-scene.com/forums/f6/working-way-restore-your-blu-ray-playback-now-easy-use-php-script-73780/index23.html>PSX-Scene Forums.</a> <br>";
 	return 0;	
 	}
